@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Meeting Summarizer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="text-center">
+        <h1>AI Realtime Meeting Summarization</h1>
+    </div>
+    <div class="container mt-5 ">
+        <div class="text-center my-4">
+            <button class="btn btn-primary mr-2" onclick="startRecording()">Start Recording</button>
+            <button class="btn btn-danger" onclick="stopRecording()">Stop Recording</button>
+        </div>
+        <div class="text-left my-4">
+            <input type="file" class="form-control-file" id="audioFile">
+            <button class="btn btn-success mt-2" onclick="uploadAudio()">Upload Audio</button>
+        </div>
+        <div class="text-center">
+            <p id="status" class="status-message"></p>
+            <div id="loadingSpinner" class="spinner-border text-primary" role="status" style="display: none;">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <div class="my-4">
+            <h5>Transcription:</h5>
+            <p id="transcription" class="border-custom"></p>
+        </div>
+        <div class="my-4">
+            <h5>Summary:</h5>
+            <p id="summary" class="border-custom"></p>
+        </div>
+        <div class="text-center my-4">
+            <button class="btn btn-secondary mt-2" onclick="downloadPDF()">Download PDF</button>
+            <button class="btn btn-warning mt-2" onclick="resetTranscriptionAndSummary()">Reset</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

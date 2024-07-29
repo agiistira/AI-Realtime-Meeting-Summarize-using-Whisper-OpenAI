@@ -1,0 +1,6 @@
+  openai-whisper
+  Flask
+  PyAudio
+  pydub
+  transformers
+  fpdf
